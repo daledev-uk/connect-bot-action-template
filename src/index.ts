@@ -9,7 +9,7 @@ expressApp.use(bodyParser.json());
 
 function verifyRequest(req, res, next) {
 
-  if (authenticator.isSignatureValid(req.headers["x-locust-signature"], req.body).valid) {
+  if (authenticator.isSignatureValid(req.headers["x-locust-signature"], req.body)) {
     next();
   } else {
     res.sendStatus(403);
